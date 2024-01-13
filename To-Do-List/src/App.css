@@ -1,0 +1,19 @@
+.appName {
+  font-weight: 700;
+  font-size: 45px;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+.st-row{
+    margin-top: 5px;
+    margin: 5px;
+}
+.container{
+    margin-bottom: 10px;
+}
+.items-container{
+    text-align: left;
+}
+.st-button{
+    width: 80px;
+}
