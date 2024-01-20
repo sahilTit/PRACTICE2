@@ -2,6 +2,9 @@
   font-weight: 600;
 }
 .St-item {
-  background-color: aquamarine;
-  color: blueviolet;
+  /* background-color: red; */
+  color: black;
+}
+.button{
+  float: right;
 }
