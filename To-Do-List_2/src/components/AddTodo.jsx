@@ -12,7 +12,6 @@ function AddTodo({ onNewItem }) {
         const dueDate = dueDateElement.current.value;
         todoNameElement.current.value = "";
         dueDateElement.current.value = "";
-        console.log(`${todoName} due on :${dueDate}`);
         onNewItem(todoName, dueDate);
     }
     return <div className="container items-container">
