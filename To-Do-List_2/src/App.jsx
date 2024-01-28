@@ -9,30 +9,29 @@ function App() {
 
   const [todoItems, setTodoItems] = useState([]);
 
-  const handleNewItem = (itemName, itemDueDate) => {
+  const addNewItem = (itemName, itemDueDate) => {
 
     setTodoItems((currValue) =>
       [...currValue, { name: itemName, dueDate: itemDueDate }]);
   };
 
-
-  const handleDeletItem = (todoItemName) => {
+  const deletItem = (todoItemName) => {
     const newTodoItems = todoItems.filter(item => item.name !== todoItemName);
     setTodoItems(newTodoItems);
   }
 
-  const defaultTodoItems = [{ name: 'Sahil', dueDate: 'Today' }];
-
   return (
-    <TodoItemsContext.Provider value={defaultTodoItems}>
+    <TodoItemsContext.Provider
+      value={{
+        todoItems,
+        addNewItem,
+        deletItem,
+      }}>
       <center className='todo-container' >
         <AppName />
-        <AddTodo onNewItem={handleNewItem} />
-        <WelcomeMessage todoItems={todoItems}></WelcomeMessage>
-        <TodoItems
-          TodoItems={todoItems}
-          onDeleteClick={handleDeletItem}
-        ></TodoItems>
+        <AddTodo />
+        <WelcomeMessage></WelcomeMessage>
+        <TodoItems></TodoItems>
       </center >
     </TodoItemsContext.Provider>
   )
