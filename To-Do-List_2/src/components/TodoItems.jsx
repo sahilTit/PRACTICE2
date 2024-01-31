@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem"
 const TodoItems = () => {
     const contextObj = useContext(TodoItemsContext);
     const TodoItems = contextObj.todoItems;
-    const deletItem = contextObj.deletItem;
+    const deleteItem = contextObj.deleteItem;
 
     return (<div className="items-container">
         {TodoItems.map((item) =>
@@ -12,7 +12,7 @@ const TodoItems = () => {
                 key={item.name}
                 todoName={item.name}
                 todoDate={item.dueDate}
-                onDeleteClick={deletItem}
+                onDeleteClick={deleteItem}
             ></TodoItem>)}
     </div>)
 }
