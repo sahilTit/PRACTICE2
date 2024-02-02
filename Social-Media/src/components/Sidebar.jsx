@@ -1,39 +1,26 @@
-const Sidebar = () => {
-    return <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style={{width: "280px"}}>
+const Sidebar = ({ selectedTab, setSelectedTab }) => {
+
+    const handleOnClick=(tabName)=>{
+        selectedTab(tabName);
+    }
+
+    return <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar" style={{ width: "280px" }}>
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <svg className="bi pe-none me-2" width="40" height="32"><use ></use></svg>
             <span className="fs-4">Sidebar</span>
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
-            <li className="nav-item">
-                <a href="#" className="nav-link active" aria-current="page">
+            <li className="nav-item" onClick={()=>{setSelectedTab("Home")}}>
+                <a href="#" className={`nav-link text-white ${selectedTab === "Home" && "active"}`} aria-current="page">
                     <svg className="bi pe-none me-2" width="16" height="16"><use ></use></svg>
                     Home
                 </a>
             </li>
-            <li>
-                <a href="#" className="nav-link text-white">
+            <li onClick={()=>{setSelectedTab("CreatePost")}}>
+                <a href="#" className={`nav-link text-white ${selectedTab === "CreatePost" && "active"}`}>
                     <svg className="bi pe-none me-2" width="16" height="16"><use></use></svg>
-                    Dashboard
-                </a>
-            </li>
-            <li>
-                <a href="#" className="nav-link text-white">
-                    <svg className="bi pe-none me-2" width="16" height="16"><use ></use></svg>
-                    Orders
-                </a>
-            </li>
-            <li>
-                <a href="#" className="nav-link text-white">
-                    <svg className="bi pe-none me-2" width="16" height="16"><use></use></svg>
-                    Products
-                </a>
-            </li>
-            <li>
-                <a href="#" className="nav-link text-white">
-                    <svg className="bi pe-none me-2" width="16" height="16"><use></use></svg>
-                    Customers
+                    Create Post
                 </a>
             </li>
         </ul>
@@ -41,7 +28,7 @@ const Sidebar = () => {
         <div className="dropdown">
             <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" />
-                <strong>mdo</strong>
+                <strong>Settings</strong>
             </a>
             <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a className="dropdown-item" href="#">New project...</a></li>
